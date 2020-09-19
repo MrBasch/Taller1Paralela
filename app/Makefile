@@ -16,7 +16,7 @@ main.o: directorios main.cpp
 	$(CXX) $(CXXFLAGS) -c main.cpp -o build/main.o
 
 all: clean main.o funciones.o
-	$(CXX) $(CXXFLAGS) -o programa build/main.o $(LIBS)
+	$(CXX) $(CXXFLAGS) -o programa build/main.o build/funciones.o $(LIBS)
 	rm -fr build
 
 .DEFAULT_GOAL = all
