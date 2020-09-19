@@ -10,11 +10,13 @@ clean:
 directorios:
 	$(MKDIR) build dist
 
+funciones.o: directorios funciones.cpp
+	$(CXX) $(CXXFLAGS) -c funciones.cpp -o build/funciones.o
 main.o: directorios main.cpp
 	$(CXX) $(CXXFLAGS) -c main.cpp -o build/main.o
-	
-all: clean main.o 
-	$(CXX) $(CXXFLAGS) -o dist/programa build/main.o $(LIBS)
+
+all: clean main.o funciones.o
+	$(CXX) $(CXXFLAGS) -o programa build/main.o $(LIBS)
 	rm -fr build
 
 .DEFAULT_GOAL = all
