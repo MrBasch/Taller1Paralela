@@ -6,6 +6,7 @@
 #include <string>
 #include <cstdlib> //transformar string a int
 #include <cmath> //obtener raiz
+#include <cctype> //valida digito
 using namespace std;
 
 /**
@@ -30,75 +31,85 @@ int main(int argc, char* argv[]) {
                 if(i==0){
                     x3="1";
                 }
-                if(i>0){
-                    x3 = algoritmo[i-1];
-                }
                 if(x3 == " "){
                     x3 ="1";
                 }
-                if((i-2)> 0 and algoritmo[i-2]=='-'){
-                    x3 ="-" + x3;
-                    
-                }   
+                int contador=1;
+                while(std::isdigit(algoritmo[i-contador])){
+                    x3 = algoritmo[i-contador] + x3;
+                    contador++;
+                }
+                if(algoritmo[i-contador]=='-'){
+                    x3 = "-" + x3;
+                }  
             }
              if(algoritmo[i+1] == '*' and algoritmo[i+3] == '2'){
                 if(i==0){
                     x2="1";
                 }
-                if(i>0){
-                    x2 = algoritmo[i-1];
-                }
-                
                 if(x2 == " "){
                     x2 ="1";
                 }
-                if((i-2)> 0 and algoritmo[i-2]=='-'){
-                    x2 ="-" + x2;
+                int contador=1;
+                while(std::isdigit(algoritmo[i-contador])){
+                    x2 = algoritmo[i-contador] + x2;
+                    contador++;
+                }
+                if(algoritmo[i-contador]=='-'){
+                    x2 = "-" + x2;
                 }     
             }
              if(algoritmo[i+1] == '*' and algoritmo[i+3] == '1'){
                 if(i==0){
                     x1="1";
                 }
-                if(i>0){
-                    x1 = algoritmo[i-1];
-                } 
                 if(x1 == " "){
                     x1 ="1";
-                }  
-                if((i-2)> 0 and algoritmo[i-2]=='-'){
-                    x1 ="-" + x1;
                 }
+                int contador=1;
+                while(std::isdigit(algoritmo[i-contador])){
+                    x1 = algoritmo[i-contador] + x1;
+                    contador++;
+                }
+                if(algoritmo[i-contador]=='-'){
+                    x1 = "-" + x1;
+                }   
+
             }
             if(algoritmo[i+1] == '*' and algoritmo[i+3] == '0'){
                 if(i==0){
                     x0="1";
                 }
-                if(i>0){
-                    x0 = algoritmo[i-1];
-                } 
                 if(x0 == " "){
                     x0 ="1";
                 }  
-                if((i-2)> 0 and algoritmo[i-2]=='-'){
-                    x0 ="-" + x0;
-                }
+                int contador=1;
+                while(std::isdigit(algoritmo[i-contador])){
+                    x0 = algoritmo[i-contador] + x0;
+                    contador++;
+                }  
+                if(algoritmo[i-contador]=='-'){
+                    x0 = "-" + x0;
+                } 
+
             }
            
             
         }
-        if(algoritmo[i] == 'x' and largo==i+1){
+        if(algoritmo[i] == 'x' and largo==i+1){ //parche innecesario
             if(i==0){
                     x1="1";
-                }
-            if(i>0){
-                x1 = algoritmo[i-1];
             }
             if(algoritmo[i-1] == ' '){
                 x1 ="1";
             }   
-            if((i-2)> 0 and algoritmo[i-2]=='-'){
-                x1 ="-" + x1;
+            int contador=1;
+            while(std::isdigit(algoritmo[i-contador])){
+                x0 = algoritmo[i-contador] + x0;
+                contador++;
+            }  
+            if(algoritmo[i-contador]=='-'){
+                x0 = "-" + x0;
             } 
         }
 
@@ -107,6 +118,10 @@ int main(int argc, char* argv[]) {
     int c= atoi(x1.c_str());
     int b = atoi(x2.c_str());
     int a= atoi(x3.c_str());
+    std::cout <<"c2: "<<c2<< std::endl;
+    std::cout <<"c: "<<c<< std::endl;
+    std::cout <<"b: "<<b<< std::endl;
+    std::cout <<"a: "<<a<< std::endl;
     std::cout <<"=== resultado === "<< std::endl;
     if(c2!=0 and a!=0){ //caso polinomio grado 3 completo
         int contador=0;
