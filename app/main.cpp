@@ -20,13 +20,11 @@ int main(int argc, char* argv[]) {
     char* algoritmo = argv[1];
     int largo= (unsigned)strlen(argv[1]);
     std::cout << std ::endl;
-    string x0;
-    string x1;
-    string x2;
-    string x3;
-    
+    string x0; //factor de x⁰
+    string x1; //factor de x¹
+    string x2; //factor de x²
+    string x3; //factor de x³ 
     for (int i=0; i< largo ; i++){
-        //std::cout << " elemento en la posición " << i << " es " << algoritmo[i] << std::endl;
         if(algoritmo[i] == 'x' and largo>i+1){
             if(algoritmo[i+1] == '*' and algoritmo[i+3] == '3'){
                 if(i==0){
@@ -140,8 +138,8 @@ int main(int argc, char* argv[]) {
                     std::cout <<"raiz 1 = " << raiz1 << std ::endl;
                 }
                 else{
-                    float caso1= (-bb + sqrt(delta*-1))/(2*a);
-                    float caso2= (-bb - sqrt(delta*-1))/(2*a);
+                    float caso1= (-bb + sqrt(delta))/(2*a);
+                    float caso2= (-bb - sqrt(delta))/(2*a);
                     std::cout <<"raiz 3 = " << raiz3 << std ::endl;
                     std::cout <<"raiz 2 = " << caso2 << std ::endl;
                     std::cout <<"raiz 1 = " << caso1 << std ::endl;     
@@ -165,8 +163,8 @@ int main(int argc, char* argv[]) {
             std::cout <<"raiz 1 = " << raiz1 << std ::endl;
         }
         else{
-            float caso1= (-b + sqrt(delta*-1))/(2*a);
-            float caso2= (-b - sqrt(delta*-1))/(2*a);
+            float caso1= (-b + sqrt(delta))/(2*a);
+            float caso2= (-b - sqrt(delta))/(2*a);
             std::cout <<"raiz 3 = " << 0 << std ::endl;
             std::cout <<"raiz 2 = " << caso2 << std ::endl;
             std::cout <<"raiz 1 = " << caso1 << std ::endl;
@@ -177,8 +175,10 @@ int main(int argc, char* argv[]) {
         float delta = (c*c)-4*b*c2;
         if(delta<0){ //caso delta imaginario
             delta=delta*-1;
-            float im= sqrt(delta)/(2*a); //i
-            float real=-c/2*b;
+            float im= (sqrt(delta))/(2*b); //i
+            float real=-c/(2*b);
+            std::cout << "im" << im << std ::endl;
+            std::cout << "real" << real << std ::endl;
             std::string raiz1 = std::to_string(real) + "+" + std::to_string(im)+"i";
             std::cout << std ::endl;
             std::string raiz2 = std::to_string(real) + "-" + std::to_string(im)+"i";
@@ -188,8 +188,8 @@ int main(int argc, char* argv[]) {
             std::cout <<"raiz 1 = " << raiz1 << std ::endl;
         }
         else{
-            float caso1= (-c + sqrt(delta*-1))/2*b;
-            float caso2= (-c - sqrt(delta*-1))/2*b;
+            float caso1= (-c + sqrt(delta))/(2*b);
+            float caso2= (-c - sqrt(delta))/(2*b);
             std::cout <<"raiz 3 = " << 0 << std ::endl;
             std::cout <<"raiz 2 = " << caso2 << std ::endl;
             std::cout <<"raiz 1 = " << caso1 << std ::endl;
