@@ -109,14 +109,7 @@ int main(int argc, char* argv[]) {
     int c= atoi(x1.c_str());
     int b = atoi(x2.c_str());
     int a= atoi(x3.c_str());
-    std::cout <<"c2 "<<c2;
-    std::cout << std ::endl;
-    std::cout <<"c "<<c;
-    std::cout << std ::endl;
-    std::cout <<"b "<<b;
-    std::cout << std ::endl;
-    std::cout <<"a "<<a;
-    std::cout << std ::endl;
+    std::cout <<"=== resultado === "<< std::endl;
     if(c2!=0 and a!=0){ //caso polinomio grado 3 completo
         int contador=0;
         int arreglo[100];
@@ -142,16 +135,16 @@ int main(int argc, char* argv[]) {
                     std::cout << std ::endl;
                     std::string raiz2 = std::to_string(real) + "-" + std::to_string(im)+"i";
                     std::cout << std ::endl;
-                    std::cout <<"raiz 3" << raiz3 << std ::endl;
-                    std::cout <<"raiz 2" << raiz2 << std ::endl;
-                    std::cout <<"raiz 1" << raiz1 << std ::endl;
+                    std::cout <<"raiz 3 = " << raiz3 << std ::endl;
+                    std::cout <<"raiz 2 = " << raiz2 << std ::endl;
+                    std::cout <<"raiz 1 = " << raiz1 << std ::endl;
                 }
                 else{
                     float caso1= (-bb + sqrt(delta*-1))/(2*a);
                     float caso2= (-bb - sqrt(delta*-1))/(2*a);
-                    std::cout <<"raiz 3" << raiz3 << std ::endl;
-                    std::cout <<"raiz 2" << caso2 << std ::endl;
-                    std::cout <<"raiz 1" << caso1 << std ::endl;     
+                    std::cout <<"raiz 3 = " << raiz3 << std ::endl;
+                    std::cout <<"raiz 2 = " << caso2 << std ::endl;
+                    std::cout <<"raiz 1 = " << caso1 << std ::endl;     
                 }
             }
         }
@@ -160,25 +153,23 @@ int main(int argc, char* argv[]) {
         float delta = (b*b)-4*a*c;
         if(delta<0){ //caso imaginario
             delta=delta*-1;
-            std::cout <<"delta2"<< delta <<std ::endl;
             delta= sqrt(delta);
-            std::cout <<"delta3"<< delta <<std ::endl;
             float im= delta/(2*a); //i
             float real=-b/(2*a);
             std::string raiz1 = std::to_string(real) + "+" + std::to_string(im)+"i";
             std::cout << std ::endl;
             std::string raiz2 = std::to_string(real) + "-" + std::to_string(im)+"i";
             std::cout << std ::endl;
-            std::cout <<"raiz 3 " << 0 << std ::endl;
-            std::cout <<"raiz 2 " << raiz2 << std ::endl;
-            std::cout <<"raiz 1 " << raiz1 << std ::endl;
+            std::cout <<"raiz 3 = " << 0 << std ::endl;
+            std::cout <<"raiz 2 = " << raiz2 << std ::endl;
+            std::cout <<"raiz 1 = " << raiz1 << std ::endl;
         }
         else{
             float caso1= (-b + sqrt(delta*-1))/(2*a);
             float caso2= (-b - sqrt(delta*-1))/(2*a);
-            std::cout <<"raiz 3" << 0 << std ::endl;
-            std::cout <<"raiz 2" << caso2 << std ::endl;
-            std::cout <<"raiz 1" << caso1 << std ::endl;
+            std::cout <<"raiz 3 = " << 0 << std ::endl;
+            std::cout <<"raiz 2 = " << caso2 << std ::endl;
+            std::cout <<"raiz 1 = " << caso1 << std ::endl;
             
         }
     }
@@ -192,16 +183,16 @@ int main(int argc, char* argv[]) {
             std::cout << std ::endl;
             std::string raiz2 = std::to_string(real) + "-" + std::to_string(im)+"i";
             std::cout << std ::endl;
-            std::cout <<"raiz 3 " << 0 << std ::endl;
-            std::cout <<"raiz 2 " << raiz2 << std ::endl;
-            std::cout <<"raiz 1 " << raiz1 << std ::endl;
+            std::cout <<"raiz 3 = " << 0 << std ::endl;
+            std::cout <<"raiz 2 = " << raiz2 << std ::endl;
+            std::cout <<"raiz 1 = " << raiz1 << std ::endl;
         }
         else{
             float caso1= (-c + sqrt(delta*-1))/2*b;
             float caso2= (-c - sqrt(delta*-1))/2*b;
-            std::cout <<"raiz 3" << 0 << std ::endl;
-            std::cout <<"raiz 2" << caso2 << std ::endl;
-            std::cout <<"raiz 1" << caso1 << std ::endl;
+            std::cout <<"raiz 3 = " << 0 << std ::endl;
+            std::cout <<"raiz 2 = " << caso2 << std ::endl;
+            std::cout <<"raiz 1 = " << caso1 << std ::endl;
             
         }
 
