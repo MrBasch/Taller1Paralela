@@ -31,15 +31,21 @@ int main(int argc, char* argv[]) {
                 if(i==0){
                     x3="1";
                 }
-                if(x3 == " "){
+                if(i-1>=0 and algoritmo[i-1] == ' '){
                     x3 ="1";
+                    if(i-2>=0 and algoritmo[i-2] == '-'){
+                        x3 ="-1";
+                    }
+                }
+                if(i-2>=0 and algoritmo[i-2] == '-'){
+                    x3 ="-1";
                 }
                 int contador=1;
                 while(std::isdigit(algoritmo[i-contador])){
                     x3 = algoritmo[i-contador] + x3;
                     contador++;
                 }
-                if(algoritmo[i-contador]=='-'){
+                if(contador>1 and algoritmo[i-contador]=='-'){
                     x3 = "-" + x3;
                 }  
             }
@@ -47,15 +53,21 @@ int main(int argc, char* argv[]) {
                 if(i==0){
                     x2="1";
                 }
-                if(x2 == " "){
+                if(i-1>=0 and algoritmo[i-1] == ' '){
                     x2 ="1";
+                    if(i-2>=0 and algoritmo[i-2] == '-'){
+                        x2 ="-1";
+                    }
                 }
+                if(i-1>=0 and algoritmo[i-1] == '-'){
+                    x2 ="-1";
+                } 
                 int contador=1;
                 while(std::isdigit(algoritmo[i-contador])){
                     x2 = algoritmo[i-contador] + x2;
                     contador++;
                 }
-                if(algoritmo[i-contador]=='-'){
+                if(contador>1 and algoritmo[i-contador]=='-'){
                     x2 = "-" + x2;
                 }     
             }
@@ -63,15 +75,22 @@ int main(int argc, char* argv[]) {
                 if(i==0){
                     x1="1";
                 }
-                if(x1 == " "){
+                if(i-1>=0 and algoritmo[i-1] == ' '){
                     x1 ="1";
+                    if(i-2>=0 and algoritmo[i-2] == '-'){
+                        x1 ="-1";
+                    }
                 }
+                if(i-1>=0 and algoritmo[i-1] == '-'){
+                    x1 ="-1";
+                }
+
                 int contador=1;
                 while(std::isdigit(algoritmo[i-contador])){
                     x1 = algoritmo[i-contador] + x1;
                     contador++;
                 }
-                if(algoritmo[i-contador]=='-'){
+                if(contador>1 and algoritmo[i-contador]=='-'){
                     x1 = "-" + x1;
                 }   
 
@@ -80,15 +99,21 @@ int main(int argc, char* argv[]) {
                 if(i==0){
                     x0="1";
                 }
-                if(x0 == " "){
+                if(i-1>=0 and algoritmo[i-1] == ' '){
                     x0 ="1";
+                    if(i-2>=0 and algoritmo[i-2] == '-'){
+                        x0 ="-1";
+                    }
+                }
+                if(i-1>=0 and algoritmo[i-1] == '-'){
+                    x0 ="-1";
                 }  
                 int contador=1;
                 while(std::isdigit(algoritmo[i-contador])){
                     x0 = algoritmo[i-contador] + x0;
                     contador++;
                 }  
-                if(algoritmo[i-contador]=='-'){
+                if(contador>1 and algoritmo[i-contador]=='-'){
                     x0 = "-" + x0;
                 } 
 
@@ -100,15 +125,21 @@ int main(int argc, char* argv[]) {
             if(i==0){
                     x1="1";
             }
-            if(algoritmo[i-1] == ' '){
-                x1 ="1";
-            }   
+            if(i-1>=0 and algoritmo[i-1] == ' '){
+                    x1 ="1";
+                    if(i-2>=0 and algoritmo[i-2] == '-'){
+                        x1 ="-1";
+                    }
+                }
+            if(i-1>=0 and algoritmo[i-1] == '-'){
+                    x1 ="-1";
+                }    
             int contador=1;
             while(std::isdigit(algoritmo[i-contador])){
                 x0 = algoritmo[i-contador] + x0;
                 contador++;
             }  
-            if(algoritmo[i-contador]=='-'){
+            if(contador>1 and algoritmo[i-contador]=='-'){
                 x0 = "-" + x0;
             } 
         }
@@ -188,6 +219,7 @@ int main(int argc, char* argv[]) {
     }
     if(a==0){ //caso cuadratica
         float delta = (c*c)-4*b*c2;
+        std::cout << "delta" << delta << std ::endl;
         if(delta<0){ //caso delta imaginario
             delta=delta*-1;
             float im= (sqrt(delta))/(2*b); //i
