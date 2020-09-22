@@ -25,6 +25,7 @@ int main(int argc, char* argv[]) {
     string x1; //factor de x¹
     string x2; //factor de x²
     string x3; //factor de x³ 
+    /* Inicio primera parte del codigo, encargada de obtener los valores que acompañan a las X*/
     for (int i=0; i< largo ; i++){
         if(algoritmo[i] == 'x' and largo>i+1){
             if(algoritmo[i+1] == '*' and algoritmo[i+3] == '3'){
@@ -41,7 +42,7 @@ int main(int argc, char* argv[]) {
                     x3 ="-1";
                 }
                 int contador=1;
-                while(std::isdigit(algoritmo[i-contador])){
+                while(std::isdigit(algoritmo[i-contador])){ 
                     x3 = algoritmo[i-contador] + x3;
                     contador++;
                 }
@@ -145,14 +146,16 @@ int main(int argc, char* argv[]) {
         }
 
     }
+    /* Termino primera parte del codigo*/
+    /* Inicio segunda parte del codigo enfocada en encontrar las raices*/
     int c2= atoi(x0.c_str());
     int c= atoi(x1.c_str());
     int b = atoi(x2.c_str());
-    int a= atoi(x3.c_str());
-    std::cout <<"c2: "<<c2<< std::endl;
+    int a= atoi(x3.c_str()); // Transformar string a int
+    /*std::cout <<"c2: "<<c2<< std::endl;
     std::cout <<"c: "<<c<< std::endl;
     std::cout <<"b: "<<b<< std::endl;
-    std::cout <<"a: "<<a<< std::endl;
+    std::cout <<"a: "<<a<< std::endl; */
     std::cout <<"=== resultado === "<< std::endl;
     if(c2!=0 and a!=0){ //caso polinomio grado 3 completo
         int contador=0;
@@ -217,9 +220,8 @@ int main(int argc, char* argv[]) {
             
         }
     }
-    if(a==0){ //caso cuadratica
+    if(a==0 and b!=0){ //caso cuadratica
         float delta = (c*c)-4*b*c2;
-        std::cout << "delta" << delta << std ::endl;
         if(delta<0){ //caso delta imaginario
             delta=delta*-1;
             float im= (sqrt(delta))/(2*b); //i
@@ -230,19 +232,19 @@ int main(int argc, char* argv[]) {
             std::cout << std ::endl;
             std::string raiz2 = std::to_string(real) + "-" + std::to_string(im)+"i";
             std::cout << std ::endl;
-            std::cout <<"raiz 3 = " << 0 << std ::endl;
             std::cout <<"raiz 2 = " << raiz2 << std ::endl;
             std::cout <<"raiz 1 = " << raiz1 << std ::endl;
         }
         else{
             float caso1= (-c + sqrt(delta))/(2*b);
             float caso2= (-c - sqrt(delta))/(2*b);
-            std::cout <<"raiz 3 = " << 0 << std ::endl;
             std::cout <<"raiz 2 = " << caso2 << std ::endl;
-            std::cout <<"raiz 1 = " << caso1 << std ::endl;
-            
+            std::cout <<"raiz 1 = " << caso1 << std ::endl;    
         }
 
+    }
+    if(a==0 and b==0 and c!=0 and c2!=0){ //caso polinomio grado 1
+        std::cout <<"raiz = " << c2*-1 << std::endl;
     }
     participantes();
     std::cout << std ::endl;
